@@ -69,6 +69,9 @@ public class Methods {
 		final HashMap<String, MethodDescriptor[]> map = new HashMap<>(methods.length);
 
 		for (final Method method : methods) {
+			if (method.isSynthetic()) {
+				continue;
+			}
 			final String methodName = method.getName();
 
 			MethodDescriptor[] mds = map.get(methodName);
